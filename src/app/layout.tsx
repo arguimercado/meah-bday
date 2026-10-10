@@ -5,6 +5,9 @@ import "./globals.css";
 import { party } from "@/lib/party";
 
 export const metadata: Metadata = {
+  // Link previews need absolute image URLs. On Vercel this falls back to the
+  // production domain automatically; set SITE_URL if you use a custom domain.
+  metadataBase: process.env.SITE_URL ? new URL(process.env.SITE_URL) : undefined,
   title: `${party.firstName}'s ${party.age}th Birthday Pool Party`,
   description: `You're invited to ${party.firstName}'s ${party.age}th birthday pool party on ${party.date} in ${party.town}. Tap to RSVP!`,
   // Private family invitation: keep it out of search engines.
@@ -14,6 +17,7 @@ export const metadata: Metadata = {
     description: `${party.date} · ${party.town} · Pool party — tap to RSVP`,
     type: "website",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {

@@ -46,5 +46,14 @@ npm run db:deploy                               # apply to production
 2. Add environment variables: `DATABASE_URL` (Neon pooled connection string) and `ADMIN_PASSWORD`.
 3. Deploy. Share the invitation link with guests and check replies at `/admin`.
 
+## Link preview
+
+When you paste the invitation link into Messenger, Viber, WhatsApp or Facebook,
+it shows a preview card with Darlyn's photo, the date and a "Tap to RSVP" button
+(`src/app/opengraph-image.png`). On Vercel the image link uses your production
+domain automatically; if you add a custom domain, set `SITE_URL` to it.
+Messenger caches previews, so after changing the image you can refresh it with
+Facebook's Sharing Debugger.
+
 The site asks search engines not to index it (`robots` metadata and `robots.txt`),
 so only people with the link will find it.
