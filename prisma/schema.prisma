@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Guest {
+  id        String   @id @default(cuid())
+  name      String
+  kidCount  Int
+  overnight Boolean
+  createdAt DateTime @default(now())
+  kids      Kid[]
+}
+
+model Kid {
+  id      String @id @default(cuid())
+  name    String
+  guestId String
+  guest   Guest  @relation(fields: [guestId], references: [id], onDelete: Cascade)
+
+  @@index([guestId])
+}

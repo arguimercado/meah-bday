@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1b1325;
+  --color-ink-2: #2e2140;
+  --color-plum: #5a2fa3;
+  --color-grape: #7b4bc9;
+  --color-lilac: #b892f0;
+  --color-lilac-soft: #e7dbfa;
+  --color-paper: #fbf8ff;
+  --color-rose: #c9306f;
+  --color-blush: #f27aae;
+  --color-blush-soft: #ffd0e6;
+  --color-sun: #ffd34e;
+  --color-moon: #fff0a8;
+  --color-pool: #5bc8d9;
+  --color-mist: #d9cce8;
+  --color-muted: #4a3d57;
+
+  --font-display: "Fredoka Variable", "Fredoka", ui-rounded, sans-serif;
+  --font-sans: "Nunito Variable", "Nunito", ui-sans-serif, sans-serif;
+}
+
+html {
+  background: #3a2272;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+}
+
+.night-sky {
+  background: linear-gradient(180deg, #3a2272 0%, #5e3fa3 55%, #8a6cc6 100%);
+}
+
+/* Chunky "sticker" shadow used on cards and buttons */
+.sticker {
+  border: 2px solid var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.btn-press {
+  border: 2px solid var(--color-ink);
+  box-shadow: 0 5px 0 var(--color-ink);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn-press:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 0 var(--color-ink);
+}
+.btn-press:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--color-ink);
+}
+
+.field {
+  min-height: 52px;
+  width: 100%;
+  border-radius: 16px;
+  border: 2px solid var(--color-ink);
+  background: var(--color-paper);
+  padding: 0 16px;
+  font-size: 17px;
+  color: var(--color-ink);
+}
+.field::placeholder {
+  color: #8a7c99;
+}
+.field:focus-visible {
+  outline: 3px solid var(--color-blush);
+  outline-offset: 2px;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle,
+  .float {
+    animation: none;
+  }
+}
